@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Document</title>
+        <meta charset="UTF-8">
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>    
+    </head>
+    <body>
+        <!--<div id="app-7">
+            <div v-for="item in dialplan">
+                <{{item.type}}></{{item.type}}>
+            </div>
+        </div>-->
+        <div id="example">
+            <keep-alive>
+                    <!--<component :is="currentView">-->
+                        <!-- inactive components will be cached! -->
+                    <!--</component>-->
+                    <comp-Record v-if="Record"></comp-Record>
+            </keep-alive>
+        </div>
+
+        <script>
+
+            // var Audio = {
+            //     template: '<p>Welcome audio!</p>'
+            // }
+            var Record = {
+                template: '<p>Welcome reccord!</p>'
+            }
+            var vm = new Vue({
+                el: '#example',
+                data: {
+                    currentView: Record
+                }
+            })
+
+            // Vue.component('audios', {
+            //     template: '<h2>Audio</h2>'
+            // })
+
+            // Vue.component('record', {
+            //     template: '<h2>Record</h2>'
+            // })
+
+            // new Vue({
+            //     el : '#app-7',
+            //     data : {
+            //         dialplan : [
+            //             {type: 'audios', data: 'something'},
+            //             {type: 'record', data: 'something'}
+            //         ]
+            //     }
+            // })
+        </script>
+    </body>
+</html>
