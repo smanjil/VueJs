@@ -1,0 +1,51 @@
+
+<style type="text/css">
+    #app {
+        text-align: center;
+    }
+    img {
+        width: 30%;
+        margin: auto;
+        display: block;
+        margin-bottom: 10px;
+    }
+    button {
+
+    }
+</style>
+
+<div id="app">
+    <div>
+        <h2>Select a file</h2>
+        <input type="file" id="fileInput" v-el:fileInput @change="onFileChange">
+    </div>
+    <!-- <button @click="upload">Upload</button> -->
+</div>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<script>
+    new Vue({
+        el: '#app',
+        // data: {
+        //     fileUploadFormData: new FormData()
+        // },
+        methods: {
+            onFileChange(e) {
+                var formdata = new FormData()
+                formdata.append('file', this.$els.fileInput.files[0])
+                console.log(formdata)
+                // var files = e.target.files || e.dataTransfer.files;
+                // if (!files.length)
+                //     return;
+                // this.fileUploadFormData.append('file', e.target.files[0])
+                // this.upload(files[0]);
+            },
+
+            upload: function(file) {
+                console.log(file)
+                // console.log(this.fileUploadFormData)
+            }
+        }
+    });
+</script>
